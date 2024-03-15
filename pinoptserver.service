@@ -1,0 +1,15 @@
+[Unit]
+Description=PinoPTServer startup script
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/pinossaur/pinoptserver/scripts/
+User=pinossaur
+ExecStart=/bin/bash -c "/home/pinossaur/pinoptserver/scripts/server_manager.sh start"
+ExecStop=/bin/bash -c "/home/pinossaur/pinoptserver/scripts/server_manager.sh stop"
+ExecReload=/bin/bash -c "/home/pinossaur/pinoptserver/scripts/server_manager.sh restart"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
